@@ -1,0 +1,108 @@
+<div class="container mt-4 p-4 rounded-4 sombra-verde bg-light-custom">
+  <!-- Encabezado -->
+  <div class="row text-center mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold text-success">Generar informe de los reportes</h2>
+      <p class="text-secondary">Ingrese los filtros para generar el infomrme</p>
+    </div>
+  </div>
+
+  <!-- Formulario -->
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="p-4 mb-4 rounded-4 bg-white border">
+        <form #categoriaForm="ngForm">
+          <div class="row g-3">
+            <!-- Categoría -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold text-success">Categoría</label>
+              <select [(ngModel)]="reporteSeleccionado.categoria" name="categoria" required
+                class="form-select border-success shadow-sm">
+                <option value="" selected disabled>Seleccione la categoría</option>
+                @for (item of categorias; track $index) {
+                  <option [value]="item.nombre">{{item.nombre}}</option>
+                }
+              </select>
+            </div>
+
+            <!-- Fecha Inicio -->
+            <div class="col-md-3">
+              <label class="form-label fw-semibold text-success">Fecha Inicio</label>
+              <input type="date" [(ngModel)]="reporteSeleccionado.fechaInicio" name="fechaInicio"
+                class="form-control border-success shadow-sm" required>
+            </div>
+
+            <!-- Fecha Fin -->
+            <div class="col-md-3">
+              <label class="form-label fw-semibold text-success">Fecha Fin</label>
+              <input type="date" [(ngModel)]="reporteSeleccionado.fechaFinal" name="fechaFinal"
+                class="form-control border-success shadow-sm" required>
+            </div>
+          </div>
+
+          <!-- Botones -->
+          <div class="d-flex justify-content-between mt-4">
+            <button type="button" class="btn btn-outline-success sombra-verde" (click)="limpiarCampos()">
+              <i class="fa-solid fa-broom me-2"></i>
+              <span>Limpiar Campos</span>
+            </button>
+
+            <button [disabled]="categoriaForm.invalid" type="button"
+              class="btn btn-success sombra-verde" (click)="cambiarEstado()">
+              <i class="fa-solid fa-file-pdf me-2"></i>
+              <span>Generar PDF</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buscador -->
+  <div class="row justify-content-center mb-3">
+    <div class="col-lg-8">
+      <div class="input-group shadow-sm">
+        <span class="input-group-text bg-success text-white">
+          <i class="fa-solid fa-search"></i>
+        </span>
+        <input type="text" [formControl]="filtroNombre" placeholder="Buscar por nombre..." class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabla de Reportes -->
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="table-responsive rounded-4 sombra-verde">
+        <table class="table table-hover">
+          <thead class="bg-success text-white">
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Categoría</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Fecha de Creación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let comentario of reportesFiltrados">
+              <td>{{ comentario.nombre }}</td>
+              <td>{{ comentario.descripcion }}</td>
+              <td>{{ comentario.categoria }}</td>
+              <td>
+                <span [ngClass]="{
+                    'badge bg-success': comentario.estado === 'RESUELTO',
+                    'badge bg-warning text-dark': comentario.estado === 'PENDIENTE',
+                    'badge bg-danger': comentario.estado === 'RECHAZADO'
+                  }">
+                  {{ comentario.estado }}
+                </span>
+              </td>
+              <td>{{ comentario.fechaCreacion | date:'dd/MM/yyyy hh:mm:ss a' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

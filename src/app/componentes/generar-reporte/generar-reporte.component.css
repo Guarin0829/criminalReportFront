@@ -1,0 +1,30 @@
+.bg-light-custom {
+  background-color: #f4fff8;
+}
+
+.text-success {
+  color: #198754 !important;
+}
+
+.sombra-verde {
+  box-shadow: 0 0.5rem 1rem rgba(25, 135, 84, 0.15);
+}
+
+.btn-success {
+  background-color: #198754;
+  border-color: #198754;
+}
+
+.btn-success:hover {
+  background-color: #157347;
+  border-color: #146c43;
+}
+
+.btn-outline-success:hover {
+  background-color: #198754;
+  color: white;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #e6f4eb;
+}

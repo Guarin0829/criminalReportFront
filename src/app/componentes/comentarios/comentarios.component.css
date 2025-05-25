@@ -1,0 +1,124 @@
+/* Contenedor principal */
+.container {
+  max-width: 720px;
+  background: #f8f9fa; /* fondo suave */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgb(0 0 0 / 0.1);
+  margin-top: 2rem;
+}
+
+/* Título centrado con espacio */
+h2 {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+/* Fondo y padding del formulario */
+.p-4 {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+}
+
+/* Labels más definidos */
+label.form-label {
+  font-weight: 600;
+  color: #3c763d;
+}
+
+/* Textarea estilizado */
+textarea.form-control {
+  border-radius: 8px;
+  border: 1.5px solid #28a745;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.3s ease;
+}
+
+textarea.form-control:focus {
+  border-color: #218838;
+  box-shadow: 0 0 8px #28a745aa;
+}
+
+/* Botones */
+.modal-footer {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover:not(:disabled) {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+/* Buscador */
+.d-flex.align-items-center {
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.d-flex.align-items-center label {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Tabla */
+table.table {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgb(0 0 0 / 0.1);
+  margin-top: 1rem;
+}
+
+table.table thead {
+  background-color: #28a745;
+  color: white;
+}
+
+table.table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+table.table tbody tr:hover {
+  background-color: #d4edda;
+}
+
+table.table tbody td {
+  vertical-align: middle;
+  color: #444;
+}
+
+/* Celdas con fondo aliceblue para un contraste suave */
+table.table tbody td[style*="background-color: aliceblue"] {
+  background-color: #f0f8ff;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #ddd;
+}

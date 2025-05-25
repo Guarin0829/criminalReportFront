@@ -1,0 +1,40 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="col-md-6">
+    <div class="card shadow rounded-4 border-0">
+      <div class="card-header text-center bg-white border-bottom-0 pt-4">
+        <h4 class="mb-0 text-success">
+          <i class="fa-solid fa-unlock-keyhole me-2"></i>Recuperar cuenta
+        </h4>
+      </div>
+      <div class="card-body p-4">
+        <p class="text-muted text-center mb-4">
+          El código de activación tiene una vigencia de <strong>15 minutos</strong>.
+        </p>
+
+        <form #recuperarCuentaForm="ngForm">
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico:</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              placeholder="Ingresa tu correo"
+              [(ngModel)]="email"
+              name="email"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-success w-100 rounded-pill"
+            [disabled]="recuperarCuentaForm.invalid"
+            (click)="recuperarContrasena()"
+          >
+            Recuperar contraseña
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+/* Contenedor principal */
+.container {
+  max-width: 720px;
+  background: #f8f9fa; /* fondo suave, similar a whitesmoke pero más uniforme */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  margin-top: 2rem;
+}
+
+/* Títulos */
+h2, h4 {
+  color: #2e7d32; /* verde oscuro para títulos */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* Formulario */
+form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+/* Inputs y Textareas con sombra sutil */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 6px #a5d6a7;
+}
+
+/* Botones */
+.btn-success {
+  background-color: #2e7d32;
+  border-color: #2e7d32;
+  border-radius: 50px;
+  padding: 0.5rem 1.8rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #1b4d1b;
+  border-color: #1b4d1b;
+}
+
+.btn-warning {
+  background-color: #f9a825;
+  border-color: #f9a825;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.btn-danger {
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+/* Tabla */
+.table {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.table th, .table td {
+  vertical-align: middle !important;
+  padding: 1rem 1.2rem !important;
+}
+
+.table-dark {
+  background-color: #2e7d32 !important;
+  color: white !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #e8f5e9 !important;
+}
+
+/* Celdas de tabla */
+td p, td span {
+  margin: 0;
+  color: #444;
+}
+
+/* Buscador */
+.d-flex.align-items-center label {
+  font-weight: 600;
+  color: #2e7d32;
+  margin-right: 0.8rem;
+}
+
+.d-flex.align-items-center input {
+  max-width: 300px;
+  border-radius: 50px;
+}

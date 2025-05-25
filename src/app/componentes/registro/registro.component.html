@@ -1,0 +1,65 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card shadow-lg w-100" style="max-width: 700px;">
+    <div class="card-header bg-success text-white">
+      <h5 class="mb-0">
+        <i class="fa-solid fa-user-plus me-2"></i> Crear Una Cuenta
+      </h5>
+    </div>
+
+    <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="registrar()" class="row g-3">
+
+        <div class="col-md-12">
+          <label for="nombre" class="form-label">Nombre completo</label>
+          <input type="text" id="nombre" formControlName="nombre" class="form-control" placeholder="Ingrese su nombre completo" />
+        </div>
+
+        <div class="col-md-6">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input type="text" id="telefono" formControlName="telefono" class="form-control" placeholder="Ingrese su teléfono" />
+        </div>
+
+        <div class="col-md-6">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input type="email" id="email" formControlName="email" class="form-control" placeholder="ejemplo@correo.com" />
+        </div>
+
+        <div class="col-md-6">
+          <label for="ciudad" class="form-label">Ciudad</label>
+          <select id="ciudad" formControlName="ciudad" class="form-select" required>
+            <option value="" selected disabled>Seleccione una ciudad</option>
+            @for (item of ciudades; track $index) {
+              <option *ngFor="let item of ciudades; index as i" [value]="item">{{ item }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label for="direccion" class="form-label">Dirección</label>
+          <input type="text" id="direccion" formControlName="direccion" class="form-control" placeholder="Ingrese su dirección" />
+        </div>
+
+        <div class="col-md-12">
+          <label for="password" class="form-label">Contraseña</label>
+          <input [type]="mostrarPassword ? 'text' : 'password'" id="password" formControlName="password" class="form-control" placeholder="Digite una contraseña segura" />
+        </div>
+
+        <div class="col-md-12 form-check">
+          <input type="checkbox" class="form-check-input" id="VerPassword" (change)="mostrarPassword = !mostrarPassword" />
+          <label class="form-check-label" for="VerPassword">Ver contraseña</label>
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-success w-100" [disabled]="loginForm.invalid">Registrarse</button>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="card-footer text-center">
+      <small>¿Ya tienes una cuenta?
+        <a routerLink="/login" class="link-primary text-decoration-none">Inicia sesión</a>
+      </small>
+    </div>
+  </div>
+</div>

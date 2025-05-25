@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-left: 20px; padding-right: 20px">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" routerLink="">
+      <i class="fa-solid fa-map-location-dot fs-3"></i>
+      <span class="fs-4 ms-3 me-3">{{ title }}</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <!-- Si está logueado -->
+        <ng-container *ngIf="isLogged">
+
+          <!-- Si es Administrador -->
+          <ng-container *ngIf="isLoggedAdministrador">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="categoria">Gestionar Categorias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="reporte-cambiar-estado-administrador">Gestionar Reportes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="generar-reportes">Generar Informe</a>
+            </li>
+          </ng-container>
+
+          <!-- Si es Cliente -->
+          <ng-container *ngIf="isLoggedCliente">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Notificaciones
+              </a>
+              <ul class="bg-dark text-white dropdown-menu" aria-labelledby="navbarDropdown">
+                <li *ngFor="let noti of notificaciones">
+                  <span [ngClass]="{'fw-bold': !noti.leida, 'text-light': true}">
+                    {{ noti.mensaje }}
+                  </span>
+                </li>
+                <li *ngIf="notificaciones.length === 0">
+                  <span class="text-secondary ms-2">Sin notificaciones</span>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/reportes">Mis Reportes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="cuenta">Perfil</a>
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
+
+      <!-- Si no está logueado -->
+      <ng-container *ngIf="!isLogged; else loggedIn">
+        <div class="col-md-3 text-end">
+          <button type="button" routerLink="/login" class="btn btn-outline-light me-2">Login</button>
+          <button type="button" routerLink="/registro" class="btn btn-primary">Registro</button>
+        </div>
+      </ng-container>
+
+      <!-- Si está logueado -->
+      <ng-template #loggedIn>
+        <label style="color: white">{{ email }}</label>
+        <button type="button" (click)="logout()" class="btn btn-danger">Logout</button>
+      </ng-template>
+    </div>
+  </div>
+</nav>

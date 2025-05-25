@@ -1,0 +1,66 @@
+/* Fondo general claro */
+.bg-login {
+  background-color: #F1F1F1;
+}
+
+/* Tarjeta estilo moderno con bordes suaves */
+.glass-card {
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+  border: 1px solid #A5D6A7;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+/* Campos de formulario */
+.form-control {
+  background-color: #F9F9F9;
+  border: 1px solid #A5D6A7;
+  color: #333;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.2);
+}
+
+/* Placeholder y labels */
+.form-control::placeholder {
+  color: #999;
+}
+
+.form-floating > label {
+  color: #666;
+}
+
+/* Botón principal */
+.btn-primary {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #388E3C;
+}
+
+/* Checkboxes y links */
+.form-check-label {
+  color: #333;
+}
+
+.link-light {
+  color: #4CAF50 !important;
+}
+
+.link-light:hover {
+  text-decoration: underline;
+  color: #388E3C !important;
+}
+
+/* Mensajes secundarios */
+.text-white-50 {
+  color: #666 !important;
+}
